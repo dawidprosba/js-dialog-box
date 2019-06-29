@@ -1,0 +1,48 @@
+body {
+  padding: 0px;
+  margin: 0px;
+  background: #0f0c29; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #24243e,
+    #302b63,
+    #0f0c29
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #24243e,
+    #302b63,
+    #0f0c29
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+h1 {
+  margin: 0px;
+  padding: 10px;
+}
+
+.examples {
+  position: relative;
+  margin-left: 40%;
+  color: white;
+  font-weight: bolder;
+}
+
+.btn-default {
+  color: black;
+  padding: 5px;
+  border: solid white 2px;
+  min-width: 100px;
+  font-weight: bolder;
+  border-radius: 5px;
+}
+
+.btn-default:active {
+  color: rgb(133, 57, 133);
+  border: solid rgb(189, 189, 189) 2px;
+  background-color: rgb(206, 206, 206);
+}
+
+.btn-default:hover {
+  border: solid 1px rgb(82, 82, 255);
+}
