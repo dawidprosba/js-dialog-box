@@ -13,9 +13,9 @@ DialogBox is pure javascript plugin that adds Custom Dialog boxes (alerts) into 
 ### Usage:
 ```HTML
 <!-- Script -->
-<link rel="script" href="https://raw.githubusercontent.com/DcBD/js-dialog-box/master/dialogbox.js"/>
+<link rel="script" href="https://cdn.jsdelivr.net/gh/DcBD/js-dialog-box/dialogbox.js"/>
 <!-- Styles -->
-<link rel="stylesheet" href="https://raw.githubusercontent.com/DcBD/js-dialog-box/master/style.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/DcBD/js-dialog-box/style.css"/>
 ```
 
 ### Examples:
