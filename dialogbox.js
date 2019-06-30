@@ -1,8 +1,8 @@
 /*
-	DIALOG BOX JAVASCRIPT PLUGIN
-	CREATED BY DAWID PROŚBA 2019
-	LICENSE: MIT
-	VERSION: 1.0
+    DIALOG BOX JAVASCRIPT PLUGIN
+    CREATED BY DAWID PROŚBA 2019
+    LICENSE: MIT
+    VERSION: 1.0
 
 */
 var DialogBox = /** @class */ (function () {
@@ -10,6 +10,7 @@ var DialogBox = /** @class */ (function () {
         var plugin = this;
         /**
          * Object defaults
+         *  - allowOnlyOneInstance : bool - if can be instantiated two dialogue box at the same time
          * 	- container - dialogue box container
          * 	- title - dialogue box title, header
          * 	- body - dialogue box body
@@ -19,7 +20,6 @@ var DialogBox = /** @class */ (function () {
             allowOnlyOneInstance: true,
             /**
              * CONTAINER PROPERTIES
-             *
              * 	- class : string - container class
              * 	- onclick : string/function - event that will be fired on mouse click on the container
              */
@@ -48,7 +48,6 @@ var DialogBox = /** @class */ (function () {
                     enabled: true,
                     data: "×",
                     "class": "dialog-box-close",
-                    id: "dialog-box-title-close-button",
                     onclick: function () { }
                 }
             },
@@ -110,6 +109,10 @@ var DialogBox = /** @class */ (function () {
     };
     /**
      * Create dialog
+     * Create DOM elemetns
+     * APPEND THEM TO THERIS CONTAINERS
+     * APPEND DIALOG TO BODY
+     * ADD EVENT LISTERS
      */
     DialogBox.prototype.CreateDialog = function () {
         if (this.dialogData.allowOnlyOneInstance) {
@@ -131,27 +134,27 @@ var DialogBox = /** @class */ (function () {
         var footer_cancel_text;
         // Container
         container = document.createElement("div");
-        container.setAttribute('class', this.dialogData.container["class"] + " dialog-instance");
+        container.className = this.dialogData.container["class"] + " dialog-instance";
         // Title
         title = document.createElement("div"); //container
-        title.setAttribute('class', this.dialogData.title["class"]);
+        title.className = this.dialogData.title["class"];
         title_text = document.createTextNode(this.dialogData.title.data); //title text
         title.appendChild(title_text);
         title_close_btn = document.createElement("button"); //title close btn
-        title_close_btn.setAttribute('class', this.dialogData.title.closeButton["class"]);
+        title_close_btn.className = this.dialogData.title.closeButton["class"];
         title_close_btn_text = document.createTextNode(this.dialogData.title.closeButton.data); // Close button text
         title_close_btn.appendChild(title_close_btn_text);
         title.appendChild(title_close_btn);
         container.appendChild(title);
         // Body
         body = document.createElement("div"); // body container
-        body.setAttribute('class', this.dialogData.body["class"]);
+        body.className = this.dialogData.body["class"];
         body_text = document.createTextNode(this.dialogData.body.data); // body text
         body.appendChild(body_text);
         container.appendChild(body);
         // Footer
         footer = document.createElement("div");
-        footer.setAttribute('class', this.dialogData.footer["class"]);
+        footer.className = this.dialogData.footer["class"];
         if (this.dialogData.footer.confirm.enabled == true) {
             footer_confirm = document.createElement("button");
             footer_confirm.setAttribute('class', this.dialogData.footer.confirm["class"]);
@@ -161,7 +164,7 @@ var DialogBox = /** @class */ (function () {
         }
         if (this.dialogData.footer.cancel.enabled == true) {
             footer_cancel = document.createElement("button");
-            footer_cancel.setAttribute('class', this.dialogData.footer.cancel["class"]);
+            footer_cancel.className = this.dialogData.footer.cancel["class"];
             footer_cancel_text = document.createTextNode(this.dialogData.footer.cancel.data);
             footer_cancel.appendChild(footer_cancel_text);
             footer.appendChild(footer_cancel);
@@ -176,7 +179,6 @@ var DialogBox = /** @class */ (function () {
      * @param src source object to be merged with
      */
     DialogBox.prototype.extendObject = function (userConfig, defaults) {
-        console.log(userConfig);
         for (var item in defaults) {
             if (defaults.hasOwnProperty(item)) {
                 if (typeof defaults[item] == "object") {
@@ -192,8 +194,6 @@ var DialogBox = /** @class */ (function () {
                 }
             }
         }
-        console.log(userConfig);
-        console.log("-----------");
         return userConfig;
     };
     /**
@@ -217,7 +217,7 @@ var DialogBox = /** @class */ (function () {
         title[0].addEventListener('click', this.dialogData.title.onclick);
     };
     /**
-     * Remove dialogs from document
+     * Remove dialog from document
      */
     DialogBox.prototype.removeDialog = function (dialog) {
         dialog.parentNode.removeChild(dialog);

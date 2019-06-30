@@ -50,7 +50,6 @@ class DialogBox {
           enabled: true,
           data: "×",
           class: "dialog-box-close",
-          id: "dialog-box-title-close-button",
           onclick: function(){}
         }
       },
@@ -140,16 +139,17 @@ class DialogBox {
     var footer_cancel_text :any;
     // Container
     container = document.createElement("div");
-    container.setAttribute('class', this.dialogData.container.class + " dialog-instance")
+    container.className =this.dialogData.container.class + " dialog-instance";
 
     // Title
     title = document.createElement("div");//container
-    title.setAttribute('class',this.dialogData.title.class);
+    title.className = this.dialogData.title.class;
     title_text = document.createTextNode(this.dialogData.title.data);//title text
     title.appendChild(title_text);
 
     title_close_btn = document.createElement("button");//title close btn
-    title_close_btn.setAttribute('class',this.dialogData.title.closeButton.class);
+    title_close_btn.className = this.dialogData.title.closeButton.class;
+
     title_close_btn_text = document.createTextNode( this.dialogData.title.closeButton.data); // Close button text
     title_close_btn.appendChild(title_close_btn_text);
     title.appendChild(title_close_btn);
@@ -157,14 +157,14 @@ class DialogBox {
 
     // Body
     body = document.createElement("div"); // body container
-    body.setAttribute('class', this.dialogData.body.class);
+    body.className =this.dialogData.body.class;
     body_text = document.createTextNode(this.dialogData.body.data); // body text
     body.appendChild(body_text);
     container.appendChild(body);
 
     // Footer
     footer = document.createElement("div");
-    footer.setAttribute('class', this.dialogData.footer.class);
+    footer.className =this.dialogData.footer.class;
     if(this.dialogData.footer.confirm.enabled == true){
       footer_confirm = document.createElement("button");
       footer_confirm.setAttribute('class', this.dialogData.footer.confirm.class);
@@ -176,7 +176,7 @@ class DialogBox {
 
     if(this.dialogData.footer.cancel.enabled == true){
       footer_cancel = document.createElement("button");
-      footer_cancel.setAttribute('class', this.dialogData.footer.cancel.class);
+      footer_cancel.className =this.dialogData.footer.cancel.class;
       footer_cancel_text = document.createTextNode(this.dialogData.footer.cancel.data);
       footer_cancel.appendChild(footer_cancel_text);
       footer.appendChild(footer_cancel);

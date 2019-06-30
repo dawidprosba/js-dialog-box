@@ -1,25 +1,87 @@
-.examples {
-  position: relative;
-  margin-left: 40%;
+.dialog-box-close {
+  position: absolute;
+  right: 10px;
+  top: 0px;
+  margin: auto;
+  text-align: center;
+  border: solid black 0px;
+  background-color: rgba(255, 255, 255, 0);
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.dialog-box-close:hover {
+  border: solid black 0px;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.dialog-box-close:active {
+  border: solid black 0px;
+  background-color: rgba(219, 219, 219, 0);
+}
+
+.dialog-box-container {
+  position: absolute;
+  width: 25%;
+  height: 25%;
+  overflow: auto;
+  background-color: rgb(236, 236, 236);
+  border: solid gray 1px;
+  border-radius: 6px;
+  padding: 10px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.dialog-box-title {
+  text-align: center;
+  border-bottom: solid rgba(128, 128, 128, 0.233) 1px;
+  font-weight: bolder;
+}
+
+.dialog-box-body {
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.dialog-footer {
+  position: absolute;
+  margin: auto;
+  bottom: 5px;
+  width: 90%;
+  text-align: center;
+  border-top: solid rgba(128, 128, 128, 0.233) 1px;
+}
+
+.dialog-box-button {
+  border-radius: 4px;
+  font-weight: bold;
   color: white;
-  font-weight: bolder;
+  padding: 5px 10px 5px 10px;
+}
+.dialog-btn-confirm {
+  background-color: #63b463;
+  border-color: #65ca65;
+  margin: 5px;
 }
 
-.btn-default {
-  color: black;
-  padding: 5px;
-  border: solid white 2px;
-  min-width: 100px;
-  font-weight: bolder;
-  border-radius: 5px;
+.dialog-btn-confirm:hover {
+  background-color: #74d374;
+  border-color: #73e073;
 }
 
-.btn-default:active {
-  color: rgb(133, 57, 133);
-  border: solid rgb(189, 189, 189) 2px;
-  background-color: rgb(206, 206, 206);
+.dialog-btn-cancel {
+  background-color: #d9534f;
+  border-color: #d43f3a;
+  margin: 5px;
 }
 
-.btn-default:hover {
-  border: solid 1px rgb(82, 82, 255);
+.dialog-btn-cancel:hover {
+  background-color: #eb5954;
+  border-color: #ec4b45;
 }
