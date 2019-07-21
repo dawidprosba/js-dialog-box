@@ -18,6 +18,7 @@ var DialogBox = /** @class */ (function () {
          */
         this.defaults = {
             allowOnlyOneInstance: true,
+            dialogBoxClass: "dialog-box",
             /**
              * CONTAINER PROPERTIES
              * 	- class : string - container class
@@ -120,6 +121,7 @@ var DialogBox = /** @class */ (function () {
             if (exists)
                 return false;
         }
+        var dialogBox;
         var container;
         var title;
         var title_text;
@@ -133,6 +135,8 @@ var DialogBox = /** @class */ (function () {
         var footer_cancel;
         var footer_cancel_text;
         // Container
+        dialogBox = document.createElement("div");
+        dialogBox.setAttribute("class", this.dialogData.dialogBoxClass);
         container = document.createElement("div");
         container.className = this.dialogData.container["class"] + " dialog-instance";
         // Title
@@ -149,8 +153,9 @@ var DialogBox = /** @class */ (function () {
         // Body
         body = document.createElement("div"); // body container
         body.className = this.dialogData.body["class"];
-        body_text = document.createTextNode(this.dialogData.body.data); // body text
+        body_text = document.createTextNode(""); // body text
         body.appendChild(body_text);
+        body.innerHTML = this.dialogData.body.data;
         container.appendChild(body);
         // Footer
         footer = document.createElement("div");
@@ -170,8 +175,9 @@ var DialogBox = /** @class */ (function () {
             footer.appendChild(footer_cancel);
         }
         container.appendChild(footer);
-        document.body.appendChild(container);
-        this.addEvents(container);
+        dialogBox.appendChild(container);
+        document.body.appendChild(dialogBox);
+        this.addEvents(dialogBox);
     };
     /**
      * Merge two objects
@@ -203,8 +209,15 @@ var DialogBox = /** @class */ (function () {
     DialogBox.prototype.addEvents = function (dialog) {
         var plugin = this;
         var confirmButton = dialog.getElementsByClassName(this.dialogData.footer.confirm["class"]);
-        confirmButton[0].addEventListener("click", function () { plugin.removeDialog(dialog); });
-        confirmButton[0].addEventListener("click", this.dialogData.footer.confirm.onclick);
+        if (confirmButton[0] != null && confirmButton) {
+            confirmButton[0].addEventListener("click", function () { plugin.removeDialog(dialog); });
+            confirmButton[0].addEventListener("click", this.dialogData.footer.confirm.onclick);
+        }
+        var cancelButton = dialog.getElementsByClassName(this.dialogData.footer.cancel["class"]);
+        if (cancelButton[0] != null && cancelButton) {
+            cancelButton[0].addEventListener("click", function () { plugin.removeDialog(dialog); });
+            cancelButton[0].addEventListener("click", this.dialogData.footer.cancel.onclick);
+        }
         var closeButton = dialog.getElementsByClassName(this.dialogData.title.closeButton["class"]);
         closeButton[0].addEventListener("click", function () { plugin.removeDialog(dialog); });
         closeButton[0].addEventListener("click", this.dialogData.title.closeButton.onclick);

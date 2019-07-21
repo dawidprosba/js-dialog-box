@@ -1,0 +1,95 @@
+.dialog-box-close {
+  position: absolute;
+  right: 10px;
+  top: 0px;
+  margin: auto;
+  text-align: center;
+  border: solid black 0px;
+  background-color: rgba(255, 255, 255, 0);
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.dialog-box-close:hover {
+  border: solid black 0px;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.dialog-box-close:active {
+  border: solid black 0px;
+  background-color: rgba(219, 219, 219, 0);
+}
+
+.dialog-box {
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  pointer-events: none;
+  background: none !important;
+}
+.dialog-box-container {
+  pointer-events: all;
+  position: relative;
+  width: 30%;
+  overflow: auto;
+  background-color: white;
+  border: solid gray 1px;
+  border-radius: 6px;
+  padding: 20px;
+  padding-bottom: 5px;
+  margin: auto;
+}
+
+.dialog-box-title {
+  text-align: center;
+  border-bottom: solid rgba(128, 128, 128, 0.233) 1px;
+  font-weight: bolder;
+}
+
+.dialog-box-body {
+  position: relative;
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.dialog-footer {
+  position: relative;
+  margin: auto;
+  width: 90%;
+  text-align: center;
+  border-top: solid rgba(128, 128, 128, 0.233) 1px;
+}
+
+.dialog-box-button {
+  border-radius: 4px;
+  font-weight: bold;
+  color: white;
+  padding: 5px 10px 5px 10px;
+}
+.dialog-btn-confirm {
+  background-color: #63b463;
+  border-color: #65ca65;
+  margin: 5px;
+}
+
+.dialog-btn-confirm:hover {
+  background-color: #74d374;
+  border-color: #73e073;
+}
+
+.dialog-btn-cancel {
+  background-color: #d9534f;
+  border-color: #d43f3a;
+  margin: 5px;
+}
+
+.dialog-btn-cancel:hover {
+  background-color: #eb5954;
+  border-color: #ec4b45;
+}

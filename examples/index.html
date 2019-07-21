@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Dialog box, CONFIRM</title>
+    <script src="dialogbox.js"></script>
+    <script src="examples.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="demo.css" />
+  </head>
+
+  <body>
+    <div class="header">
+      <h1>
+        <p>DialogBox.js</p>
+        pure javascript plugin that adds custom dialog boxes "alerts" into your
+        project. Check out my project on
+        <a href="https://github.com/DcBD/js-dialog-box"> Github</a>
+      </h1>
+      <div class="rows">
+        <!-- Box -->
+        <div class="example-box">
+          <!-- Header -->
+          <h3>Yes / No</h3>
+          <!-- Info -->
+          <div>
+            Shows dialog box with two buttons, Yes and No with custom onclick
+            events xdeee
+            <!-- Short info -->
+            <div class="info">
+              This example will change body's font color to 'orange'
+            </div>
+            <!-- /Short info -->
+          </div>
+          <!-- Button container -->
+          <div class="btn-ctn">
+            <button class="trigger-example-btn" onclick=" AcceptDecline()">
+              Change
+            </button>
+          </div>
+        </div>
+        <!-- /Box -->
+
+        <!-- Box -->
+        <div class="example-box">
+          <!-- Header -->
+          <h3>Alert</h3>
+          <!-- Info -->
+          <div>
+            Shows alert box
+            <!-- Short info -->
+            <div class="info">
+              This example will show alert box.
+            </div>
+            <!-- /Short info -->
+          </div>
+          <!-- Button container -->
+          <div class="btn-ctn">
+            <button class="trigger-example-btn" onclick="ShowAlert()">
+              Show alert!
+            </button>
+          </div>
+        </div>
+        <!-- /Box -->
+
+        <!-- Box -->
+        <div class="example-box">
+          <!-- Header -->
+          <h3>Form</h3>
+          <!-- Info -->
+          <div>
+            Shows form that you can submit
+            <!-- Short info -->
+            <div class="info">
+              This example will show form that you can submit where action is
+              '#' and method = 'GET'
+            </div>
+            <!-- /Short info -->
+          </div>
+          <!-- Button container -->
+          <div class="btn-ctn">
+            <button class="trigger-example-btn" onclick="ExampleFormDialog()">
+              Show form
+            </button>
+          </div>
+        </div>
+        <!-- /Box -->
+      </div>
+    </div>
+    <div class="footer">
+      <p>Created by Dawid Prośba &copy; 2019</p>
+      <p>Checkout my <a href="https://github.com/DcBD">Github</a> profile!</p>
+      <p><a href="https://github.com/DcBD/js-dialog-box"> DialogBox.js</a></p>
+    </div>
+  </body>
+</html>
+
+<!--
+    =============================
+    CREATED BY: Dawid Prośba 2019
+    =============================
+    LICENSE: MIT
+    =============================
+-->

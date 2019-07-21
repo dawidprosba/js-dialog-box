@@ -20,6 +20,7 @@ class DialogBox {
      */
     this.defaults = {
       allowOnlyOneInstance: true,
+      dialogBoxClass: "dialog-box",
       /**
        * CONTAINER PROPERTIES
        * 	- class : string - container class
@@ -125,6 +126,7 @@ class DialogBox {
       var exists : boolean = this.findDialogInstance();
       if(exists) return false;
     }
+    var dialogBox : any;
     var container : any;
     var title : any;
     var title_text : any;
@@ -138,6 +140,9 @@ class DialogBox {
     var footer_cancel : any;
     var footer_cancel_text :any;
     // Container
+    dialogBox = document.createElement("div");
+    dialogBox.setAttribute("class", this.dialogData.dialogBoxClass);
+
     container = document.createElement("div");
     container.className =this.dialogData.container.class + " dialog-instance";
 
@@ -158,8 +163,10 @@ class DialogBox {
     // Body
     body = document.createElement("div"); // body container
     body.className =this.dialogData.body.class;
-    body_text = document.createTextNode(this.dialogData.body.data); // body text
+  
+    body_text = document.createTextNode(""); // body text
     body.appendChild(body_text);
+    body.innerHTML = this.dialogData.body.data;
     container.appendChild(body);
 
     // Footer
@@ -184,8 +191,10 @@ class DialogBox {
 
     container.appendChild(footer);
  
-    document.body.appendChild(container);
-    this.addEvents(container);
+   
+    dialogBox.appendChild(container);
+    document.body.appendChild(dialogBox);
+    this.addEvents(dialogBox);
   }
   /**
    * Merge two objects
@@ -221,8 +230,18 @@ class DialogBox {
     var plugin = this;
 
     var confirmButton = dialog.getElementsByClassName(this.dialogData.footer.confirm.class);
-    confirmButton[0].addEventListener("click",function(){plugin.removeDialog(dialog)});
-    confirmButton[0].addEventListener("click",this.dialogData.footer.confirm.onclick);
+    if(confirmButton[0] != null && confirmButton){
+      confirmButton[0].addEventListener("click",function(){plugin.removeDialog(dialog)});
+      confirmButton[0].addEventListener("click",this.dialogData.footer.confirm.onclick);
+    }
+ 
+
+
+    var cancelButton = dialog.getElementsByClassName(this.dialogData.footer.cancel.class);
+    if(cancelButton[0] != null && cancelButton){
+      cancelButton[0].addEventListener("click",function(){plugin.removeDialog(dialog)});
+      cancelButton[0].addEventListener("click",this.dialogData.footer.cancel.onclick);
+    }
 
 
     var closeButton = dialog.getElementsByClassName(this.dialogData.title.closeButton.class);
