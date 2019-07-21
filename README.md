@@ -19,41 +19,84 @@ DialogBox is pure javascript plugin that adds Custom Dialog boxes (alerts) into 
 ```
 
 ### Examples:
-Shows DialogBox with default options.
+Dialog: Yes, No:
 ```javascript
- var dialogBox = new DialogBox({});
-```
-Shows DialogBox with custom options.
-```javascript
-    var dialogBox = new DialogBox({
-      title: { data: "Accept me!" }, // Title
-      body: { data: "Accept me right now!" }, // Body text
-      footer: {
-        confirm: {
-          data: "Accept :)", // Confirm button text
-          onclick: function() {
-          // Instantiate another DialogBox on accept
-            var okBox = new DialogBox({
-              title: { data: "YAY!" },
-              body: { data: "YOU ACCEPTED!" },
-              footer: {
-                confirm: {
-                  data: "OK"
-                },
-                cancel: {
-                  enabled: "false" // Don't render cancel button
-                }
-              }
-            });
+// Color to change
+    var font_color = 'orange';
+    // Body element
+    var element_to_change = document.body;
+
+    // Instantiate dialog box
+    var dialogbox = new DialogBox({
+        // Title of dialog box
+        title: { data: "Change font color" },
+        // Body
+        body: { data: "Do you wish to change font color to " + font_color + " ?" },
+        // Footer
+        footer: {
+          confirm: {
+            data: "Yes",
+            // Event on click
+            onclick: function() {
+                element_to_change.style.color = font_color;
+            }
+          },
+          cancel: {
+            data: "No",
           }
         },
-        cancel: {
-          data: "Decline!",
-        }
-      },
-      container: {}
     });
+    
+```
+Dialog alert:
+```javascript
+    var dialogbox = new DialogBox({
+        // Title of dialog box
+        title: { data: "Alert!" },
+        // Body
+        body: { data: "This is example alert box."},
+        // Footer
+        footer: {
+          confirm: {
+            data: "OK",
+          },
+          cancel: {
+              enabled:false,
+          }
+        },
+    });
+```
+Dialog submitable form:
+```javascript
+var form = document.createElement("form");
+    form.setAttribute('method', 'get');
+    form.setAttribute('action', "#");
 
+    var inputText = document.createElement("input");
+    inputText.setAttribute("type", 'text');
+    inputText.setAttribute("name", "textInput");
+
+    var submitButton = document.createElement("input");
+    submitButton.setAttribute("type", "submit");
+    submitButton.setAttribute("value", "Submit!");
+
+    form.appendChild(inputText);
+    form.appendChild(submitButton);
+    var dialogbox = new DialogBox({
+        // Title of dialog box
+        title: { data: "Submitable form" },
+        // Body
+        body: { data: "Insert your text here:" + form.outerHTML},
+        // Footer
+        footer: {
+          confirm: {
+            data: "Close",
+          },
+          cancel: {
+              enabled:false,
+          }
+        },
+    });
 ```
 
 # Options:
