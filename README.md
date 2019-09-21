@@ -20,6 +20,7 @@ DialogBox is pure javascript plugin that adds Custom Dialog boxes (alerts) into 
 
 ### Examples:
 Dialog: Yes, No:
+![yes.no](https://raw.githubusercontent.com/DcBD/js-dialog-box/master/example-images/example_yes_no.gif)
 ```javascript
 // Color to change
     var font_color = 'orange';
@@ -49,6 +50,7 @@ Dialog: Yes, No:
     
 ```
 Dialog alert:
+![yes.no](https://raw.githubusercontent.com/DcBD/js-dialog-box/master/example-images/example_alert.gif)
 ```javascript
     var dialogbox = new DialogBox({
         // Title of dialog box
@@ -67,6 +69,7 @@ Dialog alert:
     });
 ```
 Dialog submitable form:
+![yes.no](https://raw.githubusercontent.com/DcBD/js-dialog-box/master/example-images/example_form.gif)
 ```javascript
 var form = document.createElement("form");
     form.setAttribute('method', 'get');
